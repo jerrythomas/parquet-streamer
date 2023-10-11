@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "parquet"
+version = "0.1.0"
+description = "Streaming parquet reader using GRPC"
+authors = ["Jerry Thomas <me@jerrythomas.name>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+grpcio = "^1.59.0"
+grpcio-tools = "^1.59.0"
+pyarrow = "^13.0.0"
+pandas = "^2.1.1"
+fastparquet = "^2023.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
