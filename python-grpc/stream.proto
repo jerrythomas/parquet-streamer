@@ -1,16 +1,20 @@
 syntax = "proto3";
 
 service ParquetStream {
-    rpc ProcessFiles (FileRequest) returns (stream FileResponse);
+    rpc ProcessFile (FileRequest) returns (stream FileResponse);
 }
 
 message FileRequest {
-    repeated string file_paths = 1;
+    string file_path = 1;
 }
 
 message FileResponse {
     string file_path = 1;
-		int32 total_row_groups = 2;
+    int32 total_row_groups = 2;
     int32 row_group_index = 3;
-    string data = 4;
+    int32 row_count = 4;
+    int32 batch_index = 5;
+    int32 batch_size = 6;
+    int32 batch_count = 7;
+    string data = 8;
 }

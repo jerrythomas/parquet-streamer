@@ -14,6 +14,21 @@ poetry install
 
 ## Setup the environment
 
+Update the `.env` file. Provide AWS access keys if you need to process S3 files.
+
+```bash
+AWS_ACCESS_KEY=
+AWS_SECRET_KEY=
+AWS_REGION=
+ROOT_FOLDER=../input
+OUTPUT_FOLDER=../output
+GRPC_PORT=50051
+GRPC_HOST=localhost
+GRPC_BATCH_SIZE=1000
+```
+
+Create a file with `$ROOT_FOLDER\file_paths.txt` containing list of parquet files to process.
+
 ```bash
 export ENV='../.env'
 set -o allexport && source ${ENV} set +o allexport

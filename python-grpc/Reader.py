@@ -11,6 +11,9 @@ class ParquetReader(ABC):
     def is_valid(self):
         pass
 
+    def get_file_path(self):
+        return self.path
+
     @property
     def parquet_file(self):
         if self._parquet_file is None:
@@ -50,6 +53,12 @@ class S3ParquetReader(ParquetReader):
         )
         self._parquet_file = None
 
+    def is_valid(self):
+        try:
+            _ = self.parquet_file.metadata
+            return True
+        except Exception:
+            return False
 
 # Factory to create appropriate reader
 class ParquetReaderFactory:
